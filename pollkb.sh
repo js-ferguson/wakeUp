@@ -1,6 +1,6 @@
 #!/bin/bash
 
-vendor_product="hiddev96"
+vendor_product="hiddev97"
 
 while read -r line; do
 	if [[ $line =~ $vendor_product ]]; then
@@ -24,5 +24,7 @@ while read -r line; do
 			echo "Could not extract hidraw device number from line."
 			break
 		fi
+	else
+		echo "Could not find vendor product"	
 	fi
 done < <(dmesg)
