@@ -1,9 +1,10 @@
 #!/bin/bash
 
-vendor_product="hiddev97"
+vendor_product="hiddev96"
+vendor_product_alt="hiddev97"
 
 while read -r line; do
-	if [[ $line =~ $vendor_product ]]; then
+	if [[ $line =~ $vendor_product || $line =~ $vendor_product_alt ]]; then
 		if [[ $line =~ hidraw([0-9]+): ]]; then
 			hidraw_device=${BASH_REMATCH[1]}
 			echo "hidraw device found at number $hidraw_device"
