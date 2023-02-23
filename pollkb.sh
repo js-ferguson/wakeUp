@@ -28,4 +28,4 @@ while read -r line; do
 	else
 		echo "Could not find vendor product"	
 	fi
-done < <(dmesg)
+done < <(dmesg | tac)
